@@ -1,0 +1,33 @@
+# Node.js dependencies
+node_modules/
+
+# npm/yarn logs
+npm-debug.log
+yarn-error.log
+# Visual Studio Code settings
+.vscode/
+
+# JetBrains IDE settings
+.idea/
+*.iml
+# Compiled output
+dist/
+
+# Logs and databases
+*.log
+*.sqlite
+# macOS
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+# Webpack build files
+build/
+# Temporary files
+.tmp/

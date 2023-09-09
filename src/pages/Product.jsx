@@ -3,10 +3,9 @@ import styled from "styled-components";
 import PageNav from "../components/PageNav";
 
 const ProductMain = styled.main`
-  margin: 2.5rem;
   padding: 2.5rem 5rem;
   background-color: var(--color-dark--1);
-  min-height: calc(100vh - 5rem);
+  min-height: calc(100vh);
 `;
 
 const ProductSection = styled.section`

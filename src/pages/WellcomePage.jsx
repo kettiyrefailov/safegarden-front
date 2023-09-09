@@ -4,8 +4,8 @@ import styled from "styled-components";
 import PageNav from "../components/PageNav";
 
 const HomeMain = styled.main`
-  height: calc(100vh - 5rem);
-  margin: 2.5rem;
+  width: 100%;
+  height: 100vh;
   background-image: linear-gradient(
       rgba(36, 42, 46, 0.8),
       rgba(36, 42, 46, 0.8)

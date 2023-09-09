@@ -17,8 +17,6 @@ const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  justify-content: center;
-  align-items: center;
 
   /* Different from other form */
   width: 48rem;
@@ -27,7 +25,16 @@ const LoginForm = styled.form`
   .buttonContainer {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    div {
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .terms {
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--color-brand--2);
+    }
   }
 `;
 
@@ -67,7 +74,7 @@ const LoginButton = styled.button`
   }
 `;
 
-const Login = () => {
+const Resgister = () => {
   // PRE-FILL FOR DEV PURPOSES
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
@@ -77,6 +84,9 @@ const Login = () => {
     <LoginMain>
       <PageNav />
       <LoginForm>
+        <h2> Welcome to SafeGarden</h2>
+        <p>Register Member</p>
+
         <FormRow>
           <Label htmlFor="email">Email address</Label>
           <Input
@@ -98,9 +108,18 @@ const Login = () => {
         </FormRow>
 
         <div className="buttonContainer">
-          <LoginButton>Login</LoginButton>
+          <div>
+            <p>
+              By clicking Sign Up, you agree to our
+              <span className="terms" onClick={() => navigate("/Terms")}>
+                Terms, Privacy Policy and Cookies Policy.
+              </span>
+              You may receive SMS Notifications from us and can opt out any
+              time.
+            </p>
+          </div>
           <LoginButton onClick={() => navigate("/register")}>
-            Register
+            Sign Up
           </LoginButton>
         </div>
       </LoginForm>
@@ -108,4 +127,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Resgister;

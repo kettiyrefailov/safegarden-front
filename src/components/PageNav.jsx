@@ -39,6 +39,9 @@ const CtaLink = styled(NavLink)`
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
+  &:hover {
+    background-color: var(--color-brand--3);
+  }
 `;
 
 function PageNav() {
@@ -53,7 +56,7 @@ function PageNav() {
         </NavItem>
         <NavItem>
           <StyledNavLink exact to="/contact-us">
-            Contect Us
+            Contact Us
           </StyledNavLink>
         </NavItem>
         <NavItem>

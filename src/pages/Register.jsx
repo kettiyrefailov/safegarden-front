@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PageNav from "../components/PageNav";
 import { useNavigate } from "react-router-dom";
+import { TabComponent } from "../components/TabComponent";
+import Logo from "../components/Logo";
+import FormParents from "../components/Forms/FormParents";
+import FormsTeacher from "../components/Forms/FormsTeacher";
 
 const LoginMain = styled.main`
   padding: 2.5rem 5rem;
@@ -85,43 +89,13 @@ const Resgister = () => {
       <PageNav />
       <LoginForm>
         <h2> Welcome to SafeGarden</h2>
-        <p>Register Member</p>
-
-        <FormRow>
-          <Label htmlFor="email">Email address</Label>
-          <Input
-            type="email"
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </FormRow>
-
-        <FormRow>
-          <Label htmlFor="password">Password</Label>
-          <Input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-        </FormRow>
-
-        <div className="buttonContainer">
-          <div>
-            <p>
-              By clicking Sign Up, you agree to our
-              <span className="terms" onClick={() => navigate("/Terms")}>
-                Terms, Privacy Policy and Cookies Policy.
-              </span>
-              You may receive SMS Notifications from us and can opt out any
-              time.
-            </p>
-          </div>
-          <LoginButton onClick={() => navigate("/register")}>
-            Sign Up
-          </LoginButton>
-        </div>
+        <TabComponent
+          title={"Parents test"}
+          tabs={[
+            { name: "Parents", content: <FormParents /> },
+            { name: "Kindergarten", content: <FormsTeacher /> },
+          ]}
+        />
       </LoginForm>
     </LoginMain>
   );

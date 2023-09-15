@@ -1,39 +1,68 @@
 import React from "react";
 import { FormContainer, LoginButton } from "./styled";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const FormParents = () => {
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const handleRegisterForm = (data) => {
+    console.log(data);
+  };
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit(handleRegisterForm)}>
       <h2>Parents Signup</h2>
       <div>
         <label>Name</label>
-        <input type="text" placeholder="Name" />
+        <input
+          type="text"
+          placeholder="Name"
+          {...register("name", { required: true })}
+        />
       </div>
       <div>
         <label>Last Name</label>
-        <input type="text" placeholder="LastName" />
+        <input
+          type="text"
+          placeholder="LastName"
+          {...register("lastname", { required: true })}
+        />
       </div>
       <div>
         <label>Telefone</label>
-        <input type="Number" placeholder="phone" />
+        <input
+          type="Number"
+          placeholder="phone"
+          {...register("phone", { required: true })}
+        />
       </div>
       <div>
         <label>Password</label>
-        <input type="password" placeholder="Password" />
+        <input
+          type="password"
+          placeholder="Password"
+          {...register("password", { required: true })}
+        />
       </div>
       <div>
         <label>Children Name</label>
-        <input type="text" placeholder="Children Name" />
+        <input
+          type="text"
+          placeholder="Children Name"
+          {...register("childrenName", { required: true })}
+        />
       </div>
       <div>
         <label>Children ID</label>
-        <input type="text" placeholder="Children ID" />
+        <input
+          type="text"
+          placeholder="Children ID"
+          {...register("childreId")}
+        />
       </div>
       <div>
         <label>Health Plans</label>
-        <select>
+        <select {...register("health")}>
           <option value="Maccabi">Maccabi</option>
           <option value="clalit">Clalit</option>
           <option value="meuhedet">Meuhedet</option>
@@ -41,11 +70,19 @@ const FormParents = () => {
       </div>
       <div>
         <label>Allergic</label>
-        <input type="text" placeholder="allergic" />
+        <input
+          type="text"
+          placeholder="allergic"
+          {...register("alergic", { required: true })}
+        />
       </div>
       <div>
         <label>Residence Name</label>
-        <input type="text" placeholder="Residence Name" />
+        <input
+          type="text"
+          placeholder="Residence Name"
+          {...register("residence", { required: true })}
+        />
       </div>
       <div className="buttonContainer">
         <div>
@@ -57,7 +94,7 @@ const FormParents = () => {
             You may receive SMS Notifications from us and can opt out any time.
           </p>
         </div>
-        <LoginButton onClick={() => navigate("/register")}>Sign Up</LoginButton>
+        <LoginButton type="submit">Sign Up</LoginButton>
       </div>
     </FormContainer>
   );

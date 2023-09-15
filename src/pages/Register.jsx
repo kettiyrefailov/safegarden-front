@@ -13,7 +13,7 @@ const LoginMain = styled.main`
   height: 100vh;
 `;
 
-const LoginForm = styled.form`
+const LoginForm = styled.div`
   background-color: var(--color-dark--2);
   border-radius: 7px;
   padding: 2rem 3rem;
@@ -80,9 +80,6 @@ const LoginButton = styled.button`
 
 const Resgister = () => {
   // PRE-FILL FOR DEV PURPOSES
-  const [email, setEmail] = useState("jack@example.com");
-  const [password, setPassword] = useState("qwerty");
-  const navigate = useNavigate();
 
   return (
     <LoginMain>

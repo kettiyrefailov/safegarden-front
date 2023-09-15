@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PageNav from "../components/PageNav";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const LoginMain = styled.main`
   padding: 2.5rem 5rem;
@@ -69,21 +70,24 @@ const LoginButton = styled.button`
 
 const Login = () => {
   // PRE-FILL FOR DEV PURPOSES
-  const [email, setEmail] = useState("jack@example.com");
-  const [password, setPassword] = useState("qwerty");
+  const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <LoginMain>
       <PageNav />
-      <LoginForm>
+      <LoginForm onSubmit={handleSubmit(onSubmit)}>
         <FormRow>
           <Label htmlFor="email">Email address</Label>
           <Input
             type="email"
+            placeholder="email"
             id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
+            {...register("email", { required: true })}
           />
         </FormRow>
 
@@ -91,14 +95,14 @@ const Login = () => {
           <Label htmlFor="password">Password</Label>
           <Input
             type="password"
+            placeholder="password"
             id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            {...register("password", { required: true })}
           />
         </FormRow>
 
         <div className="buttonContainer">
-          <LoginButton>Login</LoginButton>
+          <LoginButton type="submit">Login</LoginButton>
           <LoginButton onClick={() => navigate("/register")}>
             Register
           </LoginButton>

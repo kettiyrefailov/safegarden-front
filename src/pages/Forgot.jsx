@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import PageNav from "../components/PageNav";
 import { useNavigate } from "react-router-dom";
@@ -76,7 +75,7 @@ const LoginButton = styled.button`
   }
 `;
 
-const Login = () => {
+const Forgot = () => {
   // PRE-FILL FOR DEV PURPOSES
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
@@ -88,7 +87,9 @@ const Login = () => {
   return (
     <LoginMain>
       <PageNav />
+
       <LoginForm onSubmit={handleSubmit(onSubmit)}>
+        <h2>Forgot Password?</h2>
         <FormRow>
           <Label htmlFor="email">Email address</Label>
           <Input
@@ -99,28 +100,12 @@ const Login = () => {
           />
         </FormRow>
 
-        <FormRow>
-          <Label htmlFor="password">Password</Label>
-          <Input
-            type="password"
-            placeholder="password"
-            id="password"
-            {...register("password", { required: true })}
-          />
-          <p className="forgot" onClick={() => navigate("/forgot")}>
-            Forgot password?
-          </p>
-        </FormRow>
-
         <div className="buttonContainer">
-          <LoginButton type="submit">Login</LoginButton>
-          <LoginButton onClick={() => navigate("/register")}>
-            Register
-          </LoginButton>
+          <LoginButton type="submit">Send</LoginButton>
         </div>
       </LoginForm>
     </LoginMain>
   );
 };
 
-export default Login;
+export default Forgot;
